@@ -18,9 +18,12 @@ headers = {
 response = requests.post(NOTION_API_URL, headers=headers)
 data = response.json()
 
+# 응답 출력 (디버깅용)
+print(data)  # 응답 데이터를 출력해서 실제 형식을 확인해보세요
+
 # 날짜 비교하기
 def check_and_update():
-    for result in data["results"]:
+    for result in data.get("results", []):  # results 키가 없을 경우 빈 리스트로 처리
         last_edited_time = result['properties']['마지막업로드']['date']['start']
         last_edited_date = datetime.strptime(last_edited_time, "%Y-%m-%dT%H:%M:%S.%fZ")
         two_days_ago = datetime.now() - timedelta(days=2)
