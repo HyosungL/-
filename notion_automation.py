@@ -3,8 +3,8 @@ import requests
 from datetime import datetime, timedelta
 
 # 환경 변수에서 API 키와 데이터베이스 ID를 가져옵니다.
-NOTION_API_KEY = os.getenv("NOTION_API_KEY")  # GitHub Secrets에서 가져옵니다.
-NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")  # GitHub Secrets에서 가져옵니다.
+NOTION_API_KEY = os.getenv("NOTION_API_KEY")
+NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
 
 # Notion API 설정
 NOTION_API_URL = f"https://api.notion.com/v1/databases/{NOTION_DATABASE_ID}/query"
